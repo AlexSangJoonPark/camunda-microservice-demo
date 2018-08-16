@@ -1,0 +1,15 @@
+camunda.bpm:
+  admin-user:
+    id: demo
+    password: camunda
+    firstName: Camunda
+  filter:
+    create: All tasks
+
+#management.endpoints.web.exposure: 
+#  include: '*'
+    
+#spring.security.user:
+#  name: demo
+#  password: camunda
+  
