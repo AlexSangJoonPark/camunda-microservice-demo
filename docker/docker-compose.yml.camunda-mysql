@@ -1,0 +1,30 @@
+version: '2'
+
+services:
+  camunda:
+    image: camunda/camunda-bpm-platform:latest
+    container_name: camunda_bpm
+    environment:
+      - DB_DRIVER=com.mysql.jdbc.Driver
+      - DB_URL=jdbc:mysql://db:3306/camunda_db?autoReconnect=true
+      - DB_USERNAME=camunda
+      - DB_PASSWORD=camunda
+      - WAIT_FOR=db:3306
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+
+  db:
+    image: mysql:latest
+    container_name: camunda_mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_DATABASE=camunda_db
+      - MYSQL_ROOT_USER=root
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=camunda
+      - MYSQL_PASSWORD=camunda
+    volumes:
+      - ./camunda_mysql:/var/lib/mysql
