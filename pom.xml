@@ -3,13 +3,25 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>au.com.deloitte.pe</groupId>
+	<groupId>au.com.deloitte.pe.demo</groupId>
 	<artifactId>camunda-microservice-demo</artifactId>
 	<version>0.1.0-SNAPSHOT</version>
+
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>camunda-microservice-starter</module>
+		<module>camunda-microservice-rest</module>
+		<module>camunda-microservice-web</module>
+		<module>camunda-microservice-web-rest</module>
+		<module>camunda-microservice-external-worker</module>
+	</modules>
 
 	<properties>
 		<spring-boot.version>2.0.4.RELEASE</spring-boot.version>
 		<camunda.spring-boot.version>3.1.0-SNAPSHOT</camunda.spring-boot.version>
+		<dockerfile.maven.plugin.version>1.4.4</dockerfile.maven.plugin.version>
+		<docker.image.prefix>dpe</docker.image.prefix>
 	</properties>
 
 	<dependencyManagement>
@@ -23,34 +35,6 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-
-	<dependencies>
-		<dependency>
-			<groupId>org.camunda.bpm.springboot</groupId>
-			<artifactId>camunda-bpm-spring-boot-starter-webapp</artifactId>
-			<version>${camunda.spring-boot.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-jdbc</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-		</dependency>
-
-		<!-- test -->
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-	</dependencies>
 
 	<build>
 		<plugins>
@@ -69,6 +53,18 @@
 					</execution>
 				</executions>
 			</plugin>
+			<!-- docker -->
+			<plugin>
+	            <groupId>com.spotify</groupId>
+	            <artifactId>dockerfile-maven-plugin</artifactId>
+	            <version>${dockerfile.maven.plugin.version}</version>
+	            <configuration>
+	                <repository>${docker.image.prefix}/${project.artifactId}</repository>
+	                <buildArgs>
+	                    <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
+	                </buildArgs>
+	            </configuration>
+	        </plugin>
 		</plugins>
 	</build>
 
