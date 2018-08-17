@@ -18,10 +18,12 @@
 	</modules>
 
 	<properties>
+		<java.source.version>1.8</java.source.version>
+		<java.target.version>1.8</java.target.version>
 		<spring-boot.version>2.0.4.RELEASE</spring-boot.version>
 		<camunda.spring-boot.version>3.1.0-SNAPSHOT</camunda.spring-boot.version>
-		<dockerfile.maven.plugin.version>1.4.4</dockerfile.maven.plugin.version>
 		<docker.image.prefix>dpe</docker.image.prefix>
+		<dockerfile.maven.plugin.version>1.4.4</dockerfile.maven.plugin.version>
 	</properties>
 
 	<dependencyManagement>
@@ -38,6 +40,14 @@
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${java.source.version}</source>
+					<target>${java.target.version}</target>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
