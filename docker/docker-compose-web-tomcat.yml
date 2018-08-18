@@ -1,0 +1,25 @@
+version: '3'
+
+networks:
+  camunda_network:
+    driver: bridge
+    
+services:
+  camunda-web-tomcat:
+    image: dpe/camunda-microservice-web-tomcat:0.1.0-SNAPSHOT
+    container_name: camunda_web_tomcat
+    networks:
+      - camunda_network
+    ports:
+      - 8082:8080
+    volumes:
+      - ./config:/config
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 128M
+        reservations:
+          cpus: '0.25'
+          memory: 64M
+

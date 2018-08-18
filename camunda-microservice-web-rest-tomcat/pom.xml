@@ -3,7 +3,6 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-
 	<parent>
 		<groupId>au.com.deloitte.pe.demo</groupId>
 		<artifactId>camunda-microservice-demo</artifactId>
@@ -11,9 +10,14 @@
 	</parent>
 
 	<groupId>au.com.deloitte.pe</groupId>
-	<artifactId>camunda-microservice-rest</artifactId>
+	<artifactId>camunda-microservice-web-rest-tomcat</artifactId>
 
 	<dependencies>
+		<dependency>
+			<groupId>org.camunda.bpm.springboot</groupId>
+			<artifactId>camunda-bpm-spring-boot-starter-webapp</artifactId>
+			<version>${camunda.spring.boot.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.camunda.bpm.springboot</groupId>
 			<artifactId>camunda-bpm-spring-boot-starter-rest</artifactId>
@@ -38,7 +42,6 @@
 			<artifactId>h2</artifactId>
 			<scope>test</scope>
 		</dependency>
-
 	</dependencies>
-
+	
 </project>

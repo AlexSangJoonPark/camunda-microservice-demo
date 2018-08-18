@@ -2,4 +2,4 @@
 .project
 .settings/
 target/
-docker/camunda_mysql/
+docker/camunda*_mysql/

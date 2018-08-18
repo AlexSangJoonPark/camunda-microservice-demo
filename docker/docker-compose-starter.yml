@@ -1,0 +1,21 @@
+version: '3'
+    
+services:
+  camunda-starter:
+    image: dpe/camunda-microservice-starter:0.1.0-SNAPSHOT
+    container_name: camunda_starter
+    networks:
+      - camunda_network
+    ports:
+      - 8083:8080
+    volumes:
+      - ./config:/config
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 128M
+        reservations:
+          cpus: '0.25'
+          memory: 64M
+

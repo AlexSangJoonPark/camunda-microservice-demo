@@ -1,7 +1,7 @@
 info:
   app: 
-    name: Camunda Microservice Rest
-    description: Minimalised Camunda BPM Rest API for Microservice
+    name: Camunda Microservice Web & Rest
+    description: Minimalised Camunda BPM Web Console and Rest API for Microservice
     maintainer: Alex Park <alexspark@deloitte.com.au>
 
 camunda.bpm:
@@ -12,4 +12,3 @@ camunda.bpm:
 
 spring.datasource:
   url: jdbc:mysql://127.0.0.1:3306/camunda_db?autoReconnect=true
-  

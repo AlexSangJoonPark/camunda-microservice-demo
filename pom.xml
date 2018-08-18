@@ -12,18 +12,22 @@
 	<modules>
 		<module>camunda-microservice-starter</module>
 		<module>camunda-microservice-rest</module>
-		<module>camunda-microservice-web</module>
-		<module>camunda-microservice-web-rest</module>
+		<module>camunda-microservice-web-tomcat</module>
+		<module>camunda-microservice-web-jetty</module>
+		<module>camunda-microservice-web-undertow</module>
+		<module>camunda-microservice-web-rest-tomcat</module>
+		<module>camunda-microservice-web-rest-undertow</module>
 		<module>camunda-microservice-external-worker</module>
 	</modules>
 
 	<properties>
 		<java.source.version>1.8</java.source.version>
 		<java.target.version>1.8</java.target.version>
-		<spring-boot.version>2.0.4.RELEASE</spring-boot.version>
-		<camunda.spring-boot.version>3.1.0-SNAPSHOT</camunda.spring-boot.version>
+		<spring.boot.version>2.0.4.RELEASE</spring.boot.version>
+		<camunda.spring.boot.version>3.1.0-SNAPSHOT</camunda.spring.boot.version>
 		<docker.image.prefix>dpe</docker.image.prefix>
 		<dockerfile.maven.plugin.version>1.4.4</dockerfile.maven.plugin.version>
+		<git.commit.id.plugin.version>2.2.4</git.commit.id.plugin.version>
 	</properties>
 
 	<dependencyManagement>
@@ -31,7 +35,7 @@
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-dependencies</artifactId>
-				<version>${spring-boot.version}</version>
+				<version>${spring.boot.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -40,6 +44,7 @@
 
 	<build>
 		<plugins>
+			<!-- maven compile -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -48,33 +53,62 @@
 					<target>${java.target.version}</target>
 				</configuration>
 			</plugin>
+
+			<!-- spring-boot -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<version>${spring-boot.version}</version>
+				<version>${spring.boot.version}</version>
 				<configuration>
 					<layout>ZIP</layout>
 				</configuration>
 				<executions>
 					<execution>
 						<goals>
+							<goal>build-info</goal>
 							<goal>repackage</goal>
 						</goals>
 					</execution>
 				</executions>
 			</plugin>
-			<!-- docker -->
+
+			<!-- docker build -->
 			<plugin>
-	            <groupId>com.spotify</groupId>
-	            <artifactId>dockerfile-maven-plugin</artifactId>
-	            <version>${dockerfile.maven.plugin.version}</version>
-	            <configuration>
-	                <repository>${docker.image.prefix}/${project.artifactId}</repository>
-	                <buildArgs>
-	                    <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
-	                </buildArgs>
-	            </configuration>
-	        </plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
+				<version>${dockerfile.maven.plugin.version}</version>
+				<configuration>
+					<repository>${docker.image.prefix}/${project.artifactId}</repository>
+					<tag>${project.version}</tag>
+					<buildArgs>
+						<JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
+					</buildArgs>
+				</configuration>
+			</plugin>
+
+			<!-- git info -->
+			<plugin>
+				<groupId>pl.project13.maven</groupId>
+				<artifactId>git-commit-id-plugin</artifactId>
+				<version>${git.commit.id.plugin.version}</version>
+				<executions>
+					<execution>
+						<id>get-the-git-infos</id>
+						<goals>
+							<goal>revision</goal>
+						</goals>
+						<phase>generate-resources</phase>
+					</execution>
+				</executions>
+				<configuration>
+					<generateGitPropertiesFile>true</generateGitPropertiesFile>
+					<generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties</generateGitPropertiesFilename>
+					<gitDescribe>
+						<skip>true</skip>
+					</gitDescribe>
+				</configuration>
+			</plugin>
+
 		</plugins>
 	</build>
 

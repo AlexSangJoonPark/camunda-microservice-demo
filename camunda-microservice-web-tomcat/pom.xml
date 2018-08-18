@@ -11,12 +11,12 @@
 	</parent>
 
 	<groupId>au.com.deloitte.pe</groupId>
-	<artifactId>camunda-microservice-rest</artifactId>
+	<artifactId>camunda-microservice-web-tomcat</artifactId>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.camunda.bpm.springboot</groupId>
-			<artifactId>camunda-bpm-spring-boot-starter-rest</artifactId>
+			<artifactId>camunda-bpm-spring-boot-starter-webapp</artifactId>
 			<version>${camunda.spring.boot.version}</version>
 		</dependency>
 		<dependency>
@@ -38,7 +38,6 @@
 			<artifactId>h2</artifactId>
 			<scope>test</scope>
 		</dependency>
-
 	</dependencies>
 
 </project>

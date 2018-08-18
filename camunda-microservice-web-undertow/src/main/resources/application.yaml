@@ -1,7 +1,7 @@
 info:
   app: 
-    name: Camunda Microservice Rest
-    description: Minimalised Camunda BPM Rest API for Microservice
+    name: Camunda Microservice Web
+    description: Minimalised Camunda BPM Web Console for Microservice
     maintainer: Alex Park <alexspark@deloitte.com.au>
 
 camunda.bpm:
