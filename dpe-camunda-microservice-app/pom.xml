@@ -3,29 +3,19 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
+
 	<parent>
 		<groupId>au.com.deloitte.pe.demo</groupId>
 		<artifactId>camunda-microservice-demo</artifactId>
 		<version>${demo.version}</version>
 	</parent>
 
-	<artifactId>camunda-microservice-external-worker</artifactId>
+	<artifactId>dpe-camunda-microservice-app</artifactId>
 
 	<dependencies>
 		<dependency>
-			<groupId>org.camunda.bpm</groupId>
-			<artifactId>camunda-external-task-client</artifactId>
-			<version>1.0.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-simple</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>commons-logging</groupId>
-			<artifactId>commons-logging</artifactId>
-			<version>1.2</version>
-			<scope>compile</scope>
+			<groupId>au.com.deloitte.pe</groupId>
+			<artifactId>dpe-spring-boot-starter</artifactId>
 		</dependency>
 	</dependencies>
 

@@ -1,0 +1,25 @@
+version: '3'
+
+networks:
+  camunda_network:
+    driver: bridge
+
+services:
+  dpe-camunda:
+    image: dpe/dpe-camunda-microservice-web-rest-undertow:0.1.0-SNAPSHOT
+    container_name: dpe_camunda
+    networks:
+      - camunda_network
+    ports:
+      - 8080:8080
+    volumes:
+      - ./config:/config
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 128M
+        reservations:
+          cpus: '0.25'
+          memory: 64M
+

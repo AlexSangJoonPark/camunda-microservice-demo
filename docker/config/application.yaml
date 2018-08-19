@@ -9,7 +9,10 @@ spring.datasource:
 
 management.endpoints.web.exposure: 
   include: '*'
-    
+  
+management.health.camunda:
+  enabled: true
+  
 #spring.security.user:
 #  name: demo
 #  password: camunda

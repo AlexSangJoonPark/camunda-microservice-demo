@@ -7,17 +7,15 @@
 	<parent>
 		<groupId>au.com.deloitte.pe.demo</groupId>
 		<artifactId>camunda-microservice-demo</artifactId>
-		<version>0.1.0-SNAPSHOT</version>
+		<version>${demo.version}</version>
 	</parent>
 
-	<groupId>au.com.deloitte.pe</groupId>
 	<artifactId>camunda-microservice-web-jetty</artifactId>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.camunda.bpm.springboot</groupId>
 			<artifactId>camunda-bpm-spring-boot-starter-webapp</artifactId>
-			<version>${camunda.spring.boot.version}</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.springframework.boot</groupId>

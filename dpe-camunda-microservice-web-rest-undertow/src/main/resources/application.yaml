@@ -1,0 +1,15 @@
+info:
+  app: 
+    name: DPE Camunda BPM Web & Rest Starter
+    description: DPE Camunda BPM Web and Rest API Spring Boot Starter
+    maintainer: Alex Park <alexspark@deloitte.com.au>
+
+camunda.bpm:
+  filter:
+    create: All tasks    
+  database:
+    type: h2
+
+spring.datasource:
+  url: jdbc:h2:mem:camunda
+  driverClassName: org.h2.Driver

@@ -5,12 +5,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>au.com.deloitte.pe.demo</groupId>
 	<artifactId>camunda-microservice-demo</artifactId>
-	<version>0.1.0-SNAPSHOT</version>
+	<version>${demo.version}</version>
 
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>camunda-microservice-starter</module>
+		<module>camunda-microservice-app</module>
 		<module>camunda-microservice-rest</module>
 		<module>camunda-microservice-web-tomcat</module>
 		<module>camunda-microservice-web-jetty</module>
@@ -21,21 +21,22 @@
 	</modules>
 
 	<properties>
-		<java.source.version>1.8</java.source.version>
-		<java.target.version>1.8</java.target.version>
-		<spring.boot.version>2.0.4.RELEASE</spring.boot.version>
-		<camunda.spring.boot.version>3.1.0-SNAPSHOT</camunda.spring.boot.version>
+		<demo.version>0.1.0-SNAPSHOT</demo.version>
+		<java.version>1.8</java.version>
+		<dpe.spring-boot.version>0.1.0-SNAPSHOT</dpe.spring-boot.version>
+		<flatten-maven-plugin.version>1.0.1</flatten-maven-plugin.version>
 		<docker.image.prefix>dpe</docker.image.prefix>
-		<dockerfile.maven.plugin.version>1.4.4</dockerfile.maven.plugin.version>
-		<git.commit.id.plugin.version>2.2.4</git.commit.id.plugin.version>
+		<dockerfile-maven-plugin.version>1.4.4</dockerfile-maven-plugin.version>
+		<git-commit-id-plugin.version>2.2.4</git-commit-id-plugin.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-dependencies</artifactId>
-				<version>${spring.boot.version}</version>
+				<groupId>au.com.deloitte.pe</groupId>
+				<artifactId>dpe-spring-boot-dependencies</artifactId>
+				<version>${dpe.spring-boot.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -43,14 +44,51 @@
 	</dependencyManagement>
 
 	<build>
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.codehaus.mojo
+										</groupId>
+										<artifactId>
+											flatten-maven-plugin
+										</artifactId>
+										<versionRange>
+											[1.0.0,)
+										</versionRange>
+										<goals>
+											<goal>flatten</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
 		<plugins>
 			<!-- maven compile -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<source>${java.source.version}</source>
-					<target>${java.target.version}</target>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
 				</configuration>
 			</plugin>
 
@@ -58,7 +96,6 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<version>${spring.boot.version}</version>
 				<configuration>
 					<layout>ZIP</layout>
 				</configuration>
@@ -72,11 +109,38 @@
 				</executions>
 			</plugin>
 
+			<!-- flatten pom file -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>flatten-maven-plugin</artifactId>
+				<version>${flatten-maven-plugin.version}</version>
+				<inherited>true</inherited>
+				<executions>
+					<execution>
+						<!-- Tidy up all POMs before they are published -->
+						<id>flatten</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>flatten</goal>
+						</goals>
+						<configuration>
+							<updatePomFile>true</updatePomFile>
+							<flattenMode>oss</flattenMode>
+							<pomElements>
+								<parent>expand</parent>
+								<distributionManagement>remove</distributionManagement>
+								<repositories>remove</repositories>
+							</pomElements>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
 			<!-- docker build -->
 			<plugin>
 				<groupId>com.spotify</groupId>
 				<artifactId>dockerfile-maven-plugin</artifactId>
-				<version>${dockerfile.maven.plugin.version}</version>
+				<version>${dockerfile-maven-plugin.version}</version>
 				<configuration>
 					<repository>${docker.image.prefix}/${project.artifactId}</repository>
 					<tag>${project.version}</tag>
@@ -90,7 +154,7 @@
 			<plugin>
 				<groupId>pl.project13.maven</groupId>
 				<artifactId>git-commit-id-plugin</artifactId>
-				<version>${git.commit.id.plugin.version}</version>
+				<version>${git-commit-id-plugin.version}</version>
 				<executions>
 					<execution>
 						<id>get-the-git-infos</id>
