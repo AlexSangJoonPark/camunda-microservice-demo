@@ -10,7 +10,6 @@
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>camunda-microservice-app</module>
 		<module>camunda-microservice-rest</module>
 		<module>camunda-microservice-web-tomcat</module>
 		<module>camunda-microservice-web-jetty</module>
@@ -18,6 +17,8 @@
 		<module>camunda-microservice-web-rest-tomcat</module>
 		<module>camunda-microservice-web-rest-undertow</module>
 		<module>camunda-microservice-external-worker</module>
+		<module>dpe-camunda-microservice-app</module>
+		<module>dpe-camunda-microservice-web-rest-undertow</module>
 	</modules>
 
 	<properties>
