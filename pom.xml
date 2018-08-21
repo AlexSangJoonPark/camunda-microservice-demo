@@ -18,6 +18,7 @@
 		<module>camunda-microservice-web-rest-undertow</module>
 		<module>camunda-microservice-external-worker</module>
 		<module>dpe-camunda-microservice-app</module>
+		<module>dpe-camunda-microservice-demo</module>
 		<module>dpe-camunda-microservice-web-rest-undertow</module>
 	</modules>
 

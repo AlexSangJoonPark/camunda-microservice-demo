@@ -1,0 +1,38 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>au.com.deloitte.pe.demo</groupId>
+		<artifactId>camunda-microservice-demo</artifactId>
+		<version>${demo.version}</version>
+	</parent>
+
+	<artifactId>dpe-camunda-microservice-demo</artifactId>
+
+	<dependencies>
+		<dependency>
+			<groupId>au.com.deloitte.pe</groupId>
+			<artifactId>dpe-camunda-spring-boot-starter</artifactId>
+		</dependency>
+<!-- 		<dependency>
+			<groupId>org.camunda.bpm.cockpit.plugin</groupId>
+			<artifactId>cockpit-sample-plugin</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency> -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
+		
+		<dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <scope>provided</scope>
+    </dependency>
+		
+	</dependencies>
+
+</project>

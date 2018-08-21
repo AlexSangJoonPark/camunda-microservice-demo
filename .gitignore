@@ -1,6 +1,8 @@
 .classpath
 .project
 .flattened-pom.xml
+.factorypath
+.springBeans
 .settings/
 target/
 docker/camunda*_mysql/
