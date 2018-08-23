@@ -3,6 +3,7 @@
 .flattened-pom.xml
 .factorypath
 .springBeans
-.settings/
+.settings
+.gradle
 target/
 docker/camunda*_mysql/
