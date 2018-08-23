@@ -149,7 +149,7 @@
       <bpmn:messageEventDefinition />
     </bpmn:startEvent>
   </bpmn:process>
-  <bpmn:process id="springbootProcess" isExecutable="true">
+  <bpmn:process id="springbootProcess" isExecutable="false">
     <bpmn:startEvent id="StartEvent_1o66230" name="Start">
       <bpmn:outgoing>SequenceFlow_0ptkssw</bpmn:outgoing>
     </bpmn:startEvent>
