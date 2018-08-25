@@ -19,3 +19,7 @@ http://localhost:8080
 id: demo
 pw: camunda
 ```
+
+## Reference
+* https://github.com/berndruecker/camunda-spring-boot-amqp-microservice-cloud-example
+
