@@ -7,14 +7,18 @@ info:
 
 camunda.bpm:
   filter:
-    create: All tasks    
-  database:
-    type: h2
+    create: All tasks
   id-generator: strong
-      
+  database:
+    type: mysql
+
 spring.datasource:
-  url: jdbc:h2:mem:camunda
-  driverClassName: org.h2.Driver
+  url: jdbc:mysql://localhost:3306/camunda_db?autoReconnect=true
+  driverClassName: com.mysql.jdbc.Driver
+    
+spring.rabbitmq:
+  host: localhost
+  port: 5672
     
 demo:
   enabled: true

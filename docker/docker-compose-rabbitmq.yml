@@ -12,7 +12,7 @@ services:
       - camunda_network
     ports:
       - 5672:5672
-      - 15671:15671
+      #- 15671:15671
       - 8090:15672
     environment:
       - RABBITMQ_DEFAULT_USER=guest

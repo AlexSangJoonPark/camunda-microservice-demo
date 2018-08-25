@@ -1,0 +1,33 @@
+info:
+  app: 
+    name: DPE Camunda BPM Web & Rest Starter - docker yaml
+    description: DPE Camunda BPM Web and Rest API Spring Boot Starter
+    maintainer: Alex Park <alexspark@deloitte.com.au>
+    env: docker
+
+camunda.bpm:
+  filter:
+    create: All tasks    
+  database:
+    type: mysql
+
+spring.datasource:
+  url: jdbc:mysql://db:3306/camunda_db?autoReconnect=true
+  driverClassName: com.mysql.jdbc.Driver
+  testWhileIdle: true
+  validationQuery: SELECT 1
+
+spring.rabbitmq:
+  host: rabbitmq
+  port: 5672
+
+management.endpoints.web.exposure: 
+  include: '*'
+  
+management.health.camunda:
+  enabled: true
+  
+#spring.security.user:
+#  name: demo
+#  password: camunda
+  

@@ -6,9 +6,8 @@ networks:
 
 services:
   dpe-camunda:
-    image: dpe/dpe-camunda-microservice-web-rest-undertow:0.1.0-SNAPSHOT
-    #image: dpe/dpe-camunda-microservice-demo:0.1.0-SNAPSHOT
-    container_name: dpe_camunda
+    image: dpe/dpe-camunda-microservice-demo:0.1.0-SNAPSHOT
+    container_name: dpe_camunda_demo
     networks:
       - camunda_network
     ports:

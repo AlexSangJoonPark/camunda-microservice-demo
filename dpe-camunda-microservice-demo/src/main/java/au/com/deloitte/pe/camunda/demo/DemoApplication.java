@@ -22,6 +22,6 @@ public class DemoApplication {
 	 */
 	@PostConstruct
 	public void startProcess() {
-	  runtimeService.startProcessInstanceByKey("dpeDevBrownbagProcess");
+//	  runtimeService.startProcessInstanceByKey("dpeDevBrownbagProcess");
 	}
 }

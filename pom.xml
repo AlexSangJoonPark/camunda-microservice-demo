@@ -24,8 +24,8 @@
 
 	<properties>
 		<demo.version>0.1.0-SNAPSHOT</demo.version>
-		<java.version>1.8</java.version>
 		<dpe.spring-boot.version>0.1.0-SNAPSHOT</dpe.spring-boot.version>
+		<java.version>1.8</java.version>
 		<flatten-maven-plugin.version>1.0.1</flatten-maven-plugin.version>
 		<docker.image.prefix>dpe</docker.image.prefix>
 		<dockerfile-maven-plugin.version>1.4.4</dockerfile-maven-plugin.version>

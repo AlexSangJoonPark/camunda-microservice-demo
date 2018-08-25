@@ -11,37 +11,52 @@
 	<artifactId>dpe-camunda-microservice-demo</artifactId>
 
 	<dependencies>
+
+		<!-- DPE Camunda BPM Spring Boot Starter -->
 		<dependency>
 			<groupId>au.com.deloitte.pe</groupId>
 			<artifactId>dpe-camunda-spring-boot-starter</artifactId>
 		</dependency>
 
-		<dependency> 
-		    <groupId>org.codehaus.groovy</groupId> 
-		    <artifactId>groovy-all</artifactId>
-		    <scope>runtime</scope>
-		</dependency> 
-		
-<!--
-    <dependency>
-      <groupId>org.camunda.bpm.cockpit.plugin</groupId>
-      <artifactId>cockpit-sample-plugin</artifactId>
-      <version>1.0-SNAPSHOT</version>
-    </dependency> 
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-autoconfigure</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-amqp</artifactId>
-    </dependency>
+		<!-- Groovy -->
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy-all</artifactId>
+			<scope>runtime</scope>
+		</dependency>
 
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-cloud-connectors</artifactId>
-    </dependency>
- -->
+		<!-- Mysql -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+
+		<!-- Rabbit MQ -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-amqp</artifactId>
+		</dependency>
+
+    <!-- Extras
+		<dependency>
+			<groupId>org.camunda.bpm.cockpit.plugin</groupId>
+			<artifactId>cockpit-sample-plugin</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-autoconfigure</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-cloud-connectors</artifactId>
+		</dependency>
+		 -->
+		
 	</dependencies>
 
 </project>

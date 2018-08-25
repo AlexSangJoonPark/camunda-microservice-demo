@@ -1,5 +1,9 @@
 version: '3'
     
+networks:
+  camunda_network:
+    driver: bridge
+    
 services:
   camunda-starter:
     image: dpe/camunda-microservice-starter:0.1.0-SNAPSHOT
