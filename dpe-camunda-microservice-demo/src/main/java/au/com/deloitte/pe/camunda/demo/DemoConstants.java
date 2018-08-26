@@ -10,6 +10,10 @@ public class DemoConstants {
   public static final String VARIABLE_paymentTransactionId = "paymentTransactionId";
   
   public static final String MSG_NAME_GoodsShipped = "Message_GoodsShipped";
-
   
+  
+  public static final String EXCHANGE_NAME = "shipping";
+  public static final String ROUTING_KEY = "createShipment";
+  public static final String QUEUE_NAME = "shipping_create_test";
+
 }

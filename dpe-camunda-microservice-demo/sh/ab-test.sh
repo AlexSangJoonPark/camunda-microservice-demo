@@ -5,4 +5,4 @@
 # -c is concurrent clients
 # -n is the number of requests to run in the test
 
-ab -p order.txt -T application/x-www-form-urlencoded -c $1 -n $2 http://localhost:8080/order
+ab -p data.txt -T application/x-www-form-urlencoded -c $1 -n $2 http://localhost:8080/order
