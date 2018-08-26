@@ -1,0 +1,46 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>au.com.deloitte.pe.demo</groupId>
+		<artifactId>camunda-microservice-demo</artifactId>
+		<version>${demo.version}</version>
+	</parent>
+
+	<artifactId>dpe-camunda-microservice-tomcat</artifactId>
+
+	<dependencies>
+    <!-- DPE Camunda BPM Spring Boot Starter -->
+    <dependency>
+      <groupId>au.com.deloitte.pe</groupId>
+      <artifactId>dpe-camunda-spring-boot-tomcat-starter</artifactId>
+    </dependency>
+
+    <!-- H2 -->
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    
+    <!-- Mysql -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-jdbc</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+    </dependency>
+
+    <!-- Rabbit MQ -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-amqp</artifactId>
+    </dependency>
+    
+	</dependencies>
+
+</project>

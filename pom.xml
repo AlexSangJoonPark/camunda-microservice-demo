@@ -19,12 +19,16 @@
 		<module>camunda-microservice-external-worker</module>
 		<module>dpe-camunda-microservice-app</module>
 		<module>dpe-camunda-microservice-demo</module>
-		<module>dpe-camunda-microservice-web-rest-undertow</module>
+		<module>dpe-camunda-microservice-tomcat</module>
+		<module>dpe-camunda-microservice-undertow</module>
+		<module>dpe-camel-app</module>
+		<module>dpe-camel-rest-app</module>
 	</modules>
 
 	<properties>
 		<demo.version>0.1.0-SNAPSHOT</demo.version>
-		<dpe.spring-boot.version>0.1.0-SNAPSHOT</dpe.spring-boot.version>
+		<dpe-spring-boot.version>0.1.0-SNAPSHOT</dpe-spring-boot.version>
+		<camel-spring-boot.version>2.22.0</camel-spring-boot.version>
 		<java.version>1.8</java.version>
 		<flatten-maven-plugin.version>1.0.1</flatten-maven-plugin.version>
 		<docker.image.prefix>dpe</docker.image.prefix>
@@ -38,10 +42,18 @@
 			<dependency>
 				<groupId>au.com.deloitte.pe</groupId>
 				<artifactId>dpe-spring-boot-dependencies</artifactId>
-				<version>${dpe.spring-boot.version}</version>
+				<version>${dpe-spring-boot.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
+      <!-- Camel BOM -->
+      <dependency>
+        <groupId>org.apache.camel</groupId>
+        <artifactId>camel-spring-boot-dependencies</artifactId>
+        <version>${camel-spring-boot.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
 		</dependencies>
 	</dependencyManagement>
 

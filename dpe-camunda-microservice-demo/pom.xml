@@ -15,7 +15,7 @@
 		<!-- DPE Camunda BPM Spring Boot Starter -->
 		<dependency>
 			<groupId>au.com.deloitte.pe</groupId>
-			<artifactId>dpe-camunda-spring-boot-starter</artifactId>
+			<artifactId>dpe-camunda-spring-boot-undertow-starter</artifactId>
 		</dependency>
 
 		<!-- Groovy -->
@@ -25,6 +25,13 @@
 			<scope>runtime</scope>
 		</dependency>
 
+    <!-- H2 -->
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    
 		<!-- Mysql -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -40,7 +47,21 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-amqp</artifactId>
 		</dependency>
-
+		
+		<!-- Apache Camel -->
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-spring-boot-starter</artifactId>
+		</dependency>
+		<dependency>
+		   <groupId>org.apache.camel</groupId>
+		   <artifactId>camel-undertow</artifactId>
+		</dependency>
+<!--     <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-stream-starter</artifactId>
+    </dependency> -->
+    
     <!-- Extras
 		<dependency>
 			<groupId>org.camunda.bpm.cockpit.plugin</groupId>

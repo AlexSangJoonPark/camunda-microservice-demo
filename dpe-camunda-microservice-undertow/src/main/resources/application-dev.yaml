@@ -1,0 +1,31 @@
+info:
+  app: 
+    name: DPE Camunda BPM Web & Rest Starter - dev yaml
+    description: DPE Camunda BPM Web and Rest API Spring Boot Starter
+    maintainer: Alex Park <alexspark@deloitte.com.au>
+    env: dev
+
+camunda.bpm:
+  filter:
+    create: All tasks
+  id-generator: strong
+  database:
+    type: mysql
+
+spring.datasource:
+  url: jdbc:mysql://localhost:3306/camunda_db?autoReconnect=true
+  driverClassName: com.mysql.jdbc.Driver
+    
+spring.rabbitmq:
+  host: localhost
+  port: 5672
+    
+demo:
+  enabled: true
+  remoteAddress: 127.0.0.1
+  security:
+    username: admin-dev
+    roles:
+      - USER
+      - ADMIN
+  

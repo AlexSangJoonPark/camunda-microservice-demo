@@ -1,0 +1,13 @@
+camunda:
+  bpm:
+    id-generator: simple
+#    id-generator: strong
+    
+spring.datasource:
+#  url: jdbc:h2:mem:camunda
+  url: jdbc:h2:~/camunda_h2
+  driverClassName: org.h2.Driver
+  hikari:
+    idle-timeout: 10000
+    maximumPoolSize: 30
+

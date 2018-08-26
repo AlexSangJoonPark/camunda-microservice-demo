@@ -1,0 +1,56 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>au.com.deloitte.pe.demo</groupId>
+		<artifactId>camunda-microservice-demo</artifactId>
+		<version>${demo.version}</version>
+	</parent>
+
+	<artifactId>dpe-camel-rest-app</artifactId>
+
+	<dependencies>
+		<dependency>
+			<groupId>au.com.deloitte.pe</groupId>
+			<artifactId>dpe-spring-boot-starter</artifactId>
+		</dependency>
+		
+		<!-- Spring Boot -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-tomcat</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-undertow</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+    </dependency>
+    
+    <!-- Apache Camel -->
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-spring-boot-starter</artifactId>
+    </dependency>
+    <dependency>
+       <groupId>org.apache.camel</groupId>
+       <artifactId>camel-undertow</artifactId>
+    </dependency>
+    <!-- <dependency>
+       <groupId>org.apache.camel</groupId>
+       <artifactId>camel-servlet</artifactId>
+    </dependency> -->
+	</dependencies>
+
+</project>
